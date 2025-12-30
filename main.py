@@ -5,9 +5,13 @@ def add_task():
     tasks.append({"task": task, "completed": False})
     print("Task added successfully!")
 
+def view_tasks():
+    print(tasks[0]["task"])   # ❌ BUG: crashes if list is empty
+
 def menu():
     print("\n1. Add Task")
-    print("2. Exit")
+    print("2. View Tasks")
+    print("3. Exit")
 
 while True:
     menu()
@@ -16,6 +20,8 @@ while True:
     if choice == "1":
         add_task()
     elif choice == "2":
+        view_tasks()
+    elif choice == "3":
         break
     else:
         print("Invalid choice")
