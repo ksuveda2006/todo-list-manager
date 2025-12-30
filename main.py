@@ -6,7 +6,13 @@ def add_task():
     print("Task added successfully!")
 
 def view_tasks():
-    print(tasks[0]["task"])   # ❌ BUG: crashes if list is empty
+    if not tasks:
+        print("No tasks available.")
+        return
+    for i, t in enumerate(tasks, start=1):
+        status = "✓" if t["completed"] else "✗"
+        print(f"{i}. {t['task']} [{status}]")
+
 
 def menu():
     print("\n1. Add Task")
